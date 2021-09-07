@@ -1,11 +1,14 @@
 {
   "expo": {
-    "name": "todolist-app",
+    "name": "To Do List",
     "slug": "todolist-app",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.quintonpang.todolist"
+    }
   },
   "name": "todolist-app"
 }

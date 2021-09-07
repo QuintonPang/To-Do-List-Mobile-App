@@ -28,17 +28,17 @@ const ToDoListScreen=({navigator})=>{
 
 		
 	 
-		const jsonValue=await	AsyncStorage.getItem('toDoList');
+		const jsonValue=await AsyncStorage.getItem('toDoList');
 
 
 
 		//parse the json back to array, then set it to to do list
 		
 
-		jsonValue!==undefined&&setToDoList(JSON.parse(jsonValue));
+		jsonValue&&setToDoList(JSON.parse(jsonValue));
 
 
-
+		
 
 		
 	
@@ -102,18 +102,19 @@ const ToDoListScreen=({navigator})=>{
 		//set input variable according to text whenever it changes
 		setInput(text);
 
-		
+			
 
 		
 	};
 
 	const addToDo=()=>{
 
+
 		//set new list with original list and input from handleInput
 
 		setToDoList([...toDoList,input]);
 
-		//reset input
+		//store data in async storage 
 		storeData([...toDoList,input]);
 		
 		//reset input                                               
@@ -158,7 +159,7 @@ const ToDoListScreen=({navigator})=>{
 			<ScrollView style={styles.scroll}>
 
 
-				{toDoList.map((toDo,index)=>{
+				{toDoList&&toDoList.map((toDo,index)=>{
 
 				   return (
 					
